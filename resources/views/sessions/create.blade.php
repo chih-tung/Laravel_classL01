@@ -20,7 +20,7 @@
 
           <div class="mb-3">
             <label for="password">密碼：</label>
-            <input type="password" name="password" class="form-control" value="{{ old('password') }}">
+            <input type="password" name="password" class="form-control" value="">
           </div>
 
           <button type="submit" class="btn btn-primary">登入</button>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
@@ -19,10 +19,12 @@ class SessionsController extends Controller
 
 
         if(Auth::attempt($credentials)){
-            echo "正確";
+            session()->flash('success', '歡迎回來~');
+            return redirect()->route('users.show', [Auth::user()]);
+
         }else{
-            echo "錯誤";
+            session()->flash('danger', '帳號密碼有誤');
+            return redirect()->back()->withInput();
         }
-        return;
     }
 }
